@@ -120,7 +120,7 @@ Conversion utilities handle HTML ↔ RichText transformation for contentEditable
 
 ## Development Phases
 
-The project follows a **9-phase implementation plan** (see `notion-editor-spec.md`):
+The project follows a **9-phase implementation plan** (see `docs/notion-editor-spec.md`):
 
 **Mandatory Phases (1-5):**
 1. **Foundation** - Basic blocks, Zustand setup, contentEditable
@@ -135,14 +135,29 @@ The project follows a **9-phase implementation plan** (see `notion-editor-spec.m
 8. **Performance** - Memoization, virtualization, concurrent features
 9. **Polish & Accessibility** - ARIA, animations, edge cases, testing
 
+### Phase 1 Implementation Plan
+
+**Phase 1 detailed implementation plan is located at:** `docs/plan/phase-1-foundation.md`
+
+This plan breaks Phase 1 into **6 self-contained milestones**:
+1. Project Scaffolding & Configuration
+2. Core Type Definitions
+3. Zustand Store with Immer
+4. Block Rendering Infrastructure
+5. ContentEditable Text Editing
+6. Keyboard Interactions (Enter & Backspace)
+
 **When implementing features:**
-- Follow the phase order - each builds on previous phases
+- Follow the phase order - each phase builds on previous phases
 - Complete phases 1-5 as they form the core editor functionality
 - Phases 6-9 are optional enhancements - implement based on learning goals
-- **IMPORTANT: When planning or implementing a phase, focus ONLY on that specific phase** - do not plan, implement, or touch features from other phases
+- **CRITICAL IMPLEMENTATION RULE: When implementing a milestone or phase, focus EXCLUSIVELY on that specific milestone/phase** - do not implement, plan, or touch features from other milestones or phases unless explicitly instructed
+- **Work on ONE milestone at a time** - complete all acceptance criteria for the current milestone before moving to the next
+- Each milestone should be independently testable and committable to git
 - Check the "What You'll Learn" section for each phase to understand learning objectives
 - Reference the "Implementation Details" code examples in the spec
-- Complete "Acceptance Criteria" before moving to next phase
+- Complete "Acceptance Criteria" before moving to next milestone/phase
+- Do not add "nice to have" features that belong to future phases
 
 ## Critical Implementation Details
 
