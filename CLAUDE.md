@@ -202,7 +202,7 @@ Use Vitest + React Testing Library for all tests.
 
 ## Reference Documentation
 
-The complete technical specification is in `notion-editor-spec.md`, which includes:
+The complete technical specification is in `docs/notion-editor-spec.md`, which includes:
 - Detailed data model definitions
 - Implementation code examples for each phase
 - Acceptance criteria checklists
