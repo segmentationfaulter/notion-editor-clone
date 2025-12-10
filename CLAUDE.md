@@ -27,6 +27,17 @@ This is a **Notion-style block editor** built as a learning project to master ad
 - **Vitest + React Testing Library** - Testing
 - **CSS Modules or Tailwind** - Styling
 
+## Dependency Management
+
+**Always use the latest stable versions of dependencies:**
+- When adding new packages, use `npm install <package>@latest`
+- Regularly check for updates with `npm outdated`
+- Update dependencies with `npm update` or `npm install <package>@latest`
+- Use caret ranges (^) in package.json to allow minor/patch updates
+- Test thoroughly after major version updates
+- Prefer stable releases over pre-release versions
+
+
 ## Core Architecture
 
 ### Data Model
