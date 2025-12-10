@@ -16,6 +16,15 @@ This is a **Notion-style block editor** built as a learning project to master ad
 - Feature parity with Notion (focus on core mechanics)
 - Mobile-first design (desktop-first, responsive is a bonus)
 
+## Git Workflow
+
+**CRITICAL RULE: NEVER commit changes to git automatically.**
+- Do NOT run `git add`, `git commit`, or `git push` commands
+- Do NOT create commits even if the implementation plan suggests it
+- The user will manually handle all git operations
+- You may prepare files and inform the user when a milestone is complete
+- You may suggest what commit message would be appropriate, but never execute it
+
 ## Tech Stack
 
 - **React 19+** - UI framework with concurrent features
