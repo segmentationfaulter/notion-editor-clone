@@ -202,6 +202,38 @@ interface UIState {
 - Implement basic block rendering
 - Enable simple text editing in paragraphs
 
+### What You'll Learn
+
+**React Concepts:**
+- Modern project setup with Vite (fast HMR, native ESM)
+- Strict TypeScript patterns with React components
+- Component composition and prop drilling basics
+- Controlled vs uncontrolled components (contentEditable challenges)
+
+**State Management:**
+- Zustand store setup and basic patterns
+- Immer for immutable state updates (simpler than manual spreading)
+- Normalized data structures (flat block storage vs nested)
+- State slices and modular store organization
+
+**Advanced Patterns:**
+- Custom hooks for reusable logic (`useBlock`, `useEditor`)
+- Polymorphic components (dynamic block type rendering)
+- Working with refs for DOM manipulation
+- Event handling with `useCallback` for performance
+
+**DOM & Browser APIs:**
+- ContentEditable API fundamentals
+- Selection and Range API basics
+- Keyboard event handling
+- Converting between HTML and custom data structures
+
+**Architecture:**
+- Feature-based folder structure
+- Separation of concerns (components, hooks, store, utils)
+- TypeScript discriminated unions for type safety
+- Index files for clean imports
+
 ### Features
 
 1. **Project Setup**
@@ -367,6 +399,44 @@ export function EditableContent({
 - Enable keyboard navigation between blocks
 - Support block-level selection
 
+### What You'll Learn
+
+**Advanced DOM APIs:**
+- `window.getSelection()` and Selection API
+- Range API for precise cursor positioning
+- `selectionchange` event and cross-browser considerations
+- Calculating cursor position within contentEditable elements
+
+**Complex State Management:**
+- Tracking ephemeral UI state (selection, focus)
+- Coordinating DOM state with React state
+- When to sync vs when to derive state
+- Multiple state update patterns (selection + focus)
+
+**Event Handling:**
+- Global vs local event listeners
+- Event delegation patterns
+- Keyboard event composition (Cmd/Ctrl + key combinations)
+- Preventing default browser behavior strategically
+
+**React Hooks Mastery:**
+- `useEffect` cleanup functions (removing event listeners)
+- `useLayoutEffect` for synchronous DOM reads
+- `useCallback` dependencies and memoization
+- Creating reusable custom hooks for complex logic
+
+**Focus Management:**
+- Programmatic focus control
+- Focus visible states and accessibility
+- Managing focus across dynamic lists
+- Restoring focus after state changes
+
+**User Interaction Patterns:**
+- Multi-selection with Shift+click
+- Range selection implementation
+- Click-outside detection
+- Keyboard-first navigation design
+
 ### Features
 
 1. **Caret Tracking**
@@ -475,6 +545,49 @@ export function useBlockNavigation(blockId: BlockId) {
 - Implement slash command menu
 - Enable block type transformation
 - Add more block types
+
+### What You'll Learn
+
+**Advanced Component Patterns:**
+- Portal pattern with `createPortal` for overlay UI
+- Compound components (menu + menu items)
+- Command pattern for encapsulating actions
+- Render props and component composition
+
+**React Portals:**
+- Rendering outside parent hierarchy
+- Event bubbling through portals
+- Portal mounting/unmounting lifecycle
+- Creating portal containers
+
+**State Coordination:**
+- Managing modal/overlay state
+- Position calculation and absolute positioning
+- Filtering and search patterns
+- Keyboard + mouse interaction coordination
+
+**Performance Optimization:**
+- `useMemo` for expensive filtering operations
+- When to memoize vs when to compute inline
+- Optimizing list rendering with keys
+- Debouncing vs throttling (filter as you type)
+
+**User Experience Patterns:**
+- Fuzzy search/filtering implementation
+- Keyboard navigation in menus (arrow keys, enter, escape)
+- Visual feedback for selected items
+- Closing menus (click outside, escape, selection)
+
+**Data Transformation:**
+- Type transformation while preserving data
+- Handling incompatible transformations gracefully
+- Mapping between different block types
+- Maintaining referential integrity during transforms
+
+**React 18 Features:**
+- `useId` for generating stable IDs
+- Automatic batching in action
+- Concurrent features preparation
 
 ### Features
 
@@ -654,6 +767,56 @@ export function Portal({ children }: { children: ReactNode }) {
 - Build floating formatting toolbar
 - Support markdown shortcuts
 
+### What You'll Learn
+
+**Advanced Selection API:**
+- Working with text ranges for formatting
+- Modifying selection programmatically
+- Extracting text from complex selection ranges
+- Handling collapsed vs expanded selections
+
+**Dynamic Positioning:**
+- Floating UI / positioning library integration
+- Calculating position relative to selection
+- Viewport boundary detection
+- Dynamic positioning strategies (flip, shift)
+
+**Text Processing:**
+- Parsing and applying text marks
+- Rich text data structure manipulation
+- Regex pattern matching for markdown
+- Text transformation algorithms
+
+**useLayoutEffect Mastery:**
+- Synchronous DOM measurements
+- Reading layout before paint
+- Avoiding layout thrashing
+- When to use useLayoutEffect vs useEffect
+
+**Toolbar Patterns:**
+- Floating/contextual toolbars
+- Active state detection (which formats are applied)
+- Toggle interactions
+- Icon button components
+
+**Input Pattern Matching:**
+- Real-time markdown detection
+- Pattern-based transformations
+- Handling edge cases in text input
+- InputEvent vs KeyboardEvent
+
+**State Complexity:**
+- Managing formatting marks on text segments
+- Merging adjacent text nodes with same formatting
+- Splitting text nodes when formatting changes
+- Maintaining cursor position during transformations
+
+**Keyboard Shortcuts:**
+- Cross-platform keyboard shortcuts (Cmd vs Ctrl)
+- Preventing default browser formatting
+- Custom formatting application
+- Shortcut collision handling
+
 ### Features
 
 1. **Formatting Marks**
@@ -817,6 +980,56 @@ export function useMarkdownShortcuts(blockId: BlockId) {
 - Implement drag handle UI
 - Show drop indicators
 
+### What You'll Learn
+
+**Drag and Drop Architecture:**
+- Modern drag-and-drop with dnd-kit (vs native DnD API)
+- Sensor patterns (pointer, keyboard, touch)
+- Collision detection algorithms
+- Accessibility-first drag and drop
+
+**dnd-kit Concepts:**
+- `DndContext` provider pattern
+- `useSortable` hook for list items
+- `DragOverlay` for custom drag previews
+- Activation constraints (distance threshold)
+
+**Advanced Hooks:**
+- Multiple context consumers in one component
+- Coordinating multiple refs (drag, DOM, measurement)
+- Derived state from drag events
+- Optimistic UI updates
+
+**CSS Transforms:**
+- Transform-based animations
+- CSS-in-JS with style objects
+- Transition coordination
+- GPU-accelerated animations
+
+**List Manipulation:**
+- Reordering items in immutable arrays
+- Finding insertion indices
+- Moving items efficiently
+- Maintaining list consistency
+
+**Visual Feedback:**
+- Drag previews and ghost elements
+- Drop indicators and zones
+- Hover states during drag
+- Drag handle UI patterns
+
+**Event Coordination:**
+- Drag start/end lifecycle
+- Preventing interference with other interactions
+- Cancelling drags
+- Drag state cleanup
+
+**Performance:**
+- Minimizing re-renders during drag
+- Transform vs position for animations
+- Will-change CSS property
+- Measuring performance of interactions
+
 ### Features
 
 1. **Drag Handle**
@@ -962,6 +1175,56 @@ export function SortableBlock({ id, index }: { id: string; index: number }) {
 - Implement blocks that contain other blocks
 - Enable nested drag and drop
 - Handle recursive rendering
+
+### What You'll Learn
+
+**Recursive Component Patterns:**
+- Self-referential component rendering
+- Depth tracking to prevent infinite recursion
+- Passing context through recursive layers
+- Performance implications of deep recursion
+
+**Tree Data Structures:**
+- Parent-child relationships in React
+- Navigating tree structures
+- Updating nested data immutably
+- Flattening vs nested state storage
+
+**Advanced State Management:**
+- Updating deeply nested state with Immer
+- Path-based state updates
+- Finding nodes in tree structures
+- Maintaining parent-child references
+
+**Conditional Rendering:**
+- Dynamic children rendering based on block type
+- Collapse/expand state management
+- Lazy rendering of hidden content
+- Rendering different layouts (columns, lists, toggles)
+
+**Complex Drag and Drop:**
+- Multi-level drag targets
+- Custom collision detection for nested drops
+- Drag into/out of containers
+- Visual feedback for nesting levels
+
+**Component Composition:**
+- Container vs presentational components
+- Slot pattern for flexible layouts
+- Compound component relationships
+- Controlled vs uncontrolled nested components
+
+**CSS Nesting:**
+- Styling nested structures
+- Depth-based styling
+- Indentation and visual hierarchy
+- Flexbox and Grid for layouts (columns)
+
+**Keyboard Navigation:**
+- Tab/Shift+Tab for indentation changes
+- Navigating in and out of nested structures
+- Focus management in trees
+- Keyboard shortcuts for nesting operations
 
 ### Features
 
@@ -1125,6 +1388,56 @@ function customCollisionDetection(args: CollisionDetectionArgs) {
 - Implement full undo/redo system
 - Batch typing into logical operations
 - Handle complex state changes
+
+### What You'll Learn
+
+**State History Patterns:**
+- Command pattern for undo/redo
+- Snapshot-based history vs patch-based
+- History stack data structures
+- Memory management for large histories
+
+**Batching Strategies:**
+- Debouncing user input for batching
+- Timeout-based batch commits
+- Transaction boundaries (when to commit)
+- Combining multiple operations into one undo step
+
+**Advanced Zustand:**
+- Multiple state slices coordination
+- Middleware patterns
+- Transient state (not part of history)
+- State snapshots with `structuredClone`
+
+**Immutability Deep Dive:**
+- Deep cloning strategies
+- Structural sharing
+- When to clone vs when to share
+- Memory implications of snapshots
+
+**Keyboard Shortcuts:**
+- Platform-specific shortcuts (Mac vs Windows)
+- Preventing browser default undo/redo
+- Multiple shortcut bindings
+- Global keyboard listeners
+
+**Edge Case Handling:**
+- Undo during pending batch
+- Redo stack clearing on new actions
+- Circular buffer for history limit
+- Handling undo of complex operations
+
+**State Restoration:**
+- Restoring focus after undo/redo
+- Cursor position restoration
+- Preventing jarring UI changes
+- Smooth transitions between states
+
+**Performance Considerations:**
+- Limiting history depth
+- Garbage collection of old entries
+- Lazy serialization
+- Measuring history memory usage
 
 ### Features
 
@@ -1369,6 +1682,63 @@ export function useEditorKeyboardShortcuts() {
 - Implement virtualization
 - Profile and eliminate bottlenecks
 
+### What You'll Learn
+
+**React Performance Fundamentals:**
+- React reconciliation and diffing algorithm
+- When and why components re-render
+- Component tree optimization
+- Identifying performance bottlenecks
+
+**Memoization Mastery:**
+- `React.memo` with custom comparison functions
+- `useMemo` vs `useCallback` - when to use which
+- Memoization pitfalls and anti-patterns
+- Cost/benefit analysis of memoization
+
+**Zustand Optimization:**
+- Selector patterns to prevent re-renders
+- Shallow vs deep equality comparisons
+- Splitting state for granular updates
+- Transient updates (no re-render)
+
+**Virtualization:**
+- Virtual scrolling concepts
+- Variable height item rendering
+- Measuring and caching item heights
+- Scroll performance optimization
+- Overscan for smooth scrolling
+
+**React 18 Concurrent Features:**
+- `useTransition` for non-urgent updates
+- `useDeferredValue` for expensive computations
+- StartTransition API
+- Prioritizing user interactions
+
+**Profiling Tools:**
+- React DevTools Profiler
+- Chrome DevTools Performance tab
+- Why Did You Render debugging
+- Performance marks and measures
+
+**Reference Stability:**
+- Creating stable references
+- Object and array identity
+- When references change unexpectedly
+- Fixing dependency array issues
+
+**Render Optimization Patterns:**
+- Moving state down
+- Lifting content up
+- Component composition vs props
+- Lazy loading components
+
+**Memory Management:**
+- Preventing memory leaks
+- WeakMap for caching
+- Cleanup in effects
+- Monitoring memory usage
+
 ### Features
 
 1. **Memoization**
@@ -1601,6 +1971,64 @@ export function generateLargeDocument(blockCount: number): Document {
 - Add animations and micro-interactions
 - Handle edge cases
 - Final testing and refinement
+
+### What You'll Learn
+
+**Web Accessibility (A11y):**
+- ARIA roles, states, and properties
+- Semantic HTML in SPAs
+- Screen reader testing (VoiceOver, NVDA)
+- Keyboard navigation patterns
+- Focus management best practices
+
+**ARIA Patterns:**
+- Application role and when to use it
+- Live regions for dynamic updates
+- aria-label vs aria-labelledby
+- aria-describedby for instructions
+- aria-activedescendant for composite widgets
+
+**Keyboard Accessibility:**
+- Roving tabindex pattern
+- Focus traps for modals
+- Skip links and landmarks
+- Logical tab order
+- Custom keyboard shortcuts that don't conflict
+
+**Animation & Motion:**
+- CSS transitions and animations
+- Animation performance (GPU acceleration)
+- prefers-reduced-motion media query
+- Micro-interactions for feedback
+- Avoiding layout shift
+
+**Edge Case Engineering:**
+- Defensive programming techniques
+- Boundary condition testing
+- Error boundaries in React
+- Graceful degradation
+- Input validation and sanitization
+
+**Testing:**
+- Vitest unit testing patterns
+- React Testing Library best practices
+- Integration testing strategies
+- Accessibility testing with axe-core
+- Visual regression testing concepts
+
+**Cross-browser Compatibility:**
+- Browser API differences
+- Polyfills and fallbacks
+- Feature detection
+- Progressive enhancement
+- Testing across browsers
+
+**Production Readiness:**
+- Error handling and logging
+- Loading states and skeletons
+- Empty states and zero data
+- User feedback (toasts, notifications)
+- Documentation and code comments
 
 ### Accessibility Features
 
