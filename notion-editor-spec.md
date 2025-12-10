@@ -26,7 +26,7 @@ A document editor where all content is composed of blocks—paragraphs, headings
 
 | Tool | Purpose |
 |------|---------|
-| React 18+ | UI framework |
+| React 19+ | UI framework |
 | TypeScript (strict) | Type safety |
 | Zustand | Global state management |
 | Immer | Immutable state updates |
