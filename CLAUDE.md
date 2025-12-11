@@ -35,6 +35,8 @@ This is a **Notion-style block editor** built as a learning project to master ad
 - **Floating UI** - Popover/tooltip positioning
 - **Vitest + React Testing Library** - Testing
 - **Tailwind CSS v4** (with @tailwindcss/vite plugin) - Utility-first styling
+- **Prettier** - Code formatting with standardized rules
+
 
 ## Dependency Management
 
@@ -46,6 +48,20 @@ This is a **Notion-style block editor** built as a learning project to master ad
 - Test thoroughly after major version updates
 - Prefer stable releases over pre-release versions
 
+## Code Formatting
+
+**Prettier configuration:**
+- Uses `.prettierrc` with standard React/TypeScript rules
+- `.prettierignore` excludes build artifacts, hidden directories, and `CLAUDE.md`
+- Zed editor integration via `.zed/settings.json`
+
+**Available scripts:**
+- `npm run format` - Formats all files in the project
+- `npm run format:check` - Checks if files are properly formatted (CI/CD)
+
+**Editor Integration:**
+- Zed is configured to use `npx prettier` for on-save formatting
+- Formatting works for JavaScript, TypeScript, TSX, JSON, CSS, Markdown, and HTML files
 
 ## Core Architecture
 
