@@ -286,6 +286,7 @@ The complete technical specification is in `docs/notion-editor-spec.md`, which i
 
 **TypeScript patterns:**
 - Strict mode enabled
+- Prefer `type` over `interface` where possible (use `type` for object shapes, unions, intersections; only use `interface` when you specifically need declaration merging or are defining a contract for a class)
 - Discriminated unions for Block types
 - Proper typing for all component props
 - No `any` types
