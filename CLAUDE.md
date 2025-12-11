@@ -34,7 +34,7 @@ This is a **Notion-style block editor** built as a learning project to master ad
 - **dnd-kit** - Drag and drop
 - **Floating UI** - Popover/tooltip positioning
 - **Vitest + React Testing Library** - Testing
-- **CSS Modules or Tailwind** - Styling
+- **Tailwind CSS v4** (with @tailwindcss/vite plugin) - Utility-first styling
 
 ## Dependency Management
 
