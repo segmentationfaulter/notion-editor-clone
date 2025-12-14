@@ -59,6 +59,13 @@ This is a **Notion-style block editor** built as a learning project to master ad
 - `npm run format` - Formats all files in the project
 - `npm run format:check` - Checks if files are properly formatted (CI/CD)
 
+**REQUIRED: Code Formatting Workflow:**
+After making any code changes, you MUST:
+1. Run `npm run format:check` to verify all files are properly formatted
+2. If formatting issues are found, run `npm run format` to fix them
+3. Verify formatting is correct by running `npm run format:check` again
+4. Never skip this step - improperly formatted code should not be left in the codebase
+
 **Editor Integration:**
 - Zed is configured to use `npx prettier` for on-save formatting
 - Formatting works for JavaScript, TypeScript, TSX, JSON, CSS, Markdown, and HTML files
