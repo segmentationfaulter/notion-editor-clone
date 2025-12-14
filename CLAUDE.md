@@ -70,6 +70,33 @@ After making any code changes, you MUST:
 - Zed is configured to use `npx prettier` for on-save formatting
 - Formatting works for JavaScript, TypeScript, TSX, JSON, CSS, Markdown, and HTML files
 
+## Styling
+
+**CRITICAL: Always use Tailwind CSS classes, NOT CSS Modules**
+
+- The project uses **Tailwind CSS v4** with the `@tailwindcss/vite` plugin
+- All component styling should use Tailwind utility classes directly in JSX/TSX files
+- **Do NOT create or use CSS Module files** (`.module.css`)
+- Even if implementation plans (like `docs/plan/phase-1-foundation.md`) reference CSS Modules, ignore that guidance and use Tailwind instead
+- Use Tailwind's utility-first approach for all styling needs
+- For complex or reusable styles, use Tailwind's `@apply` directive in a global CSS file if absolutely necessary, but prefer inline utility classes
+
+**Example:**
+```tsx
+// ✅ CORRECT - Use Tailwind classes
+<div className="relative mx-1">
+  <p className="text-base leading-relaxed m-0 py-1">
+    {content}
+  </p>
+</div>
+
+// ❌ INCORRECT - Don't use CSS Modules
+import styles from "./Block.module.css";
+<div className={styles.blockWrapper}>
+  <p className={styles.paragraph}>{content}</p>
+</div>
+```
+
 ## Core Architecture
 
 ### Data Model
