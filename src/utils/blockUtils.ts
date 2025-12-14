@@ -76,14 +76,25 @@ export function createHeadingBlock(
  */
 export function createEmptyDocument(): Document {
   const now = Date.now();
-  const initialBlock = createParagraphBlock();
+
+  // For Milestone 4 testing: create blocks with sample text to verify rendering
+  // TODO: Remove sample text in Milestone 5 when we add contentEditable
+  const block1 = createParagraphBlock(
+    "This is a test paragraph to verify Milestone 4 rendering works correctly.",
+  );
+  const block2 = createHeadingBlock(1, "Heading 1 Test");
+  const block3 = createHeadingBlock(2, "Heading 2 Test");
+  const block4 = createParagraphBlock("Another paragraph block.");
 
   return {
     id: createId(),
     title: "Untitled",
-    rootBlockIds: [initialBlock.id],
+    rootBlockIds: [block1.id, block2.id, block3.id, block4.id],
     blocks: {
-      [initialBlock.id]: initialBlock,
+      [block1.id]: block1,
+      [block2.id]: block2,
+      [block3.id]: block3,
+      [block4.id]: block4,
     },
     createdAt: now,
     updatedAt: now,
