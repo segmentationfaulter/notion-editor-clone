@@ -1,10 +1,8 @@
 import { useEditor } from "@/hooks/useEditor";
-import { useEditorStore } from "@/store/editorStore";
-import { selectRootBlockIds } from "@/store/selectors";
 
 function App() {
   const { document, createBlock, updateBlockContent } = useEditor();
-  const rootBlockIds = useEditorStore(selectRootBlockIds);
+  const { rootBlockIds } = document;
 
   return (
     <div className="flex flex-col items-center justify-center h-screen gap-4 p-8 font-sans">
